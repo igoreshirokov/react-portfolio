@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Nav } from '../components/header/Nav';
 
 function MainLayout({ title, children }) {
     return (
@@ -6,6 +7,7 @@ function MainLayout({ title, children }) {
             <Head>
                 <title>{title}</title>
             </Head>
+            <Nav />
             <div className="content">
                 {children}
             </div>
