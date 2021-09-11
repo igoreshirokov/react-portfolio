@@ -5,14 +5,16 @@ html, body
     padding: 0
 
 body
-    font-family: 'Roboto'   
-    font-weight: 300 
+    font-family: 'Roboto'
+    font-weight: 300
+    min-height: 360px
 
-nav
+.nav
     width: 100vw
     max-height: 80px
     height: 80px
     position: absolute
+    top: 0
     &::before
         content: ''
         background-color: $secondColor
@@ -28,8 +30,7 @@ nav
     width: 20px
     height: 60px
     background-color: #808080
-    -webkit-transform: translate(0, 0)
-    transform: translate(0, 0)
+    transform: translate(-100%, 0)
 
 .desktop-nav
     width: 100%
@@ -47,6 +48,13 @@ nav
             list-style-type: none
             text-transform: uppercase
 
+@keyframes mobile-menu
+    0%
+        transform: translateX(100%)
+    100%
+        opacity: 1
+        transform: translateX(0)
+        box-shadow: -300px 0 10px 10px rgb(0 0 0 / 50%)
 
 .mobile-nav
     .vlinesmall
@@ -55,12 +63,112 @@ nav
         top: 0
         transform: translateX(-50%)
     ul
-        padding: 0
-        margin: 0
+        padding: 170px 0 0 0
+        margin: 0 0 0 0
         position: fixed
+        z-index: 9
         width: 70%
         min-width: 300px
-        height: calc(100vh - 80px)
+        min-height: 100vh
         right: 0
-        bottom: 0
-        background-color: $secondColor
+        top: 0
+        background-color: $firstColor
+        opacity: 0
+        transition: .3s
+        transform: translate(100%,0)
+        animation: mobile-menu .5s both
+        overflow-y: scroll
+        li
+            list-style-type: none
+            width: 100%
+            height: 75px
+            display: flex
+            justify-content: center
+            align-items: center
+            cursor: pointer
+            font-size: 36px
+        @media screen and (orientation: landscape)
+            padding: 70px 0 0 0
+            li
+                height: 50px
+                font-size: 1.5rem
+
+.nav-button
+    width: 60px
+    height: 80px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: absolute
+    gap: 10px
+    top: 20px
+    right: 20px
+    z-index: 10
+    transition: .3s
+    span
+        transition: .3s
+        width: 100%
+        height: 3px
+        background: $thirdColor
+.nav-button__open
+    span
+        transform-origin: center
+        transition: .3s
+        position: absolute
+        &:first-child
+            transform-origin: center
+            transform: rotate(45deg)
+        &:nth-child(2)
+            transition: 0.5s
+            transform: scale(3) scale(0)
+        &:last-child
+            transform-origin: center
+            transform: rotate(-45deg)
+
+        span
+            &:nth-child
+                transform: rotate(-45deg)
+.contact-icons
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+.t
+    position: absolute
+    left: 50%
+    z-index: 10
+    transform: translateX(-50%)
+
+.content
+    max-width: 1440px
+    margin: 0 auto
+    margin-top: 60px
+    h1
+        color: $secondColor
+        font-size: 144px
+        line-height: 0.75
+        padding: 0
+        margin: 0
+    .headline
+        width: 50%
+        align-self: flex-start
+        display: flex
+        justify-content: flex-end
+        
+
+h1, h2, h3, h4, h5, h6
+    color: $secondColor
+
+h3
+    margin: 40px 0 0 0
+
+button
+    padding: 10px 20px
+    background-color: transparent
+    border: 2px solid $secondColor
+    color: $secondColor
+    font-size: 1.1rem
+
+.light-button

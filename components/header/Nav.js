@@ -1,6 +1,9 @@
 
-import React from 'react'
-import { useMediaQuery } from "react-responsive";
+import React, { useEffect, useState } from 'react'
+import MediaQuery from "react-responsive";
+import ContactsIcons from './ContactIcons';
+import { NavButton } from './NavButton';
+import Link from 'next/link';
 
 const DesktopNav = () => {
     return (
@@ -8,7 +11,6 @@ const DesktopNav = () => {
             <ul>
                 <li>Услуги</li>
                 <li>Работы</li>
-
                 <li>Блог</li>
                 <li>Резюме</li>
             </ul>
@@ -16,62 +18,40 @@ const DesktopNav = () => {
     )
 }
 function MobileNav() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const toggleFunc = () => {
+        setMenuOpen(!menuOpen)
+    }
     return (
         <div className="mobile-nav">
-            Mobile
+            <div className="vlinesmall"></div>
+            <NavButton open={menuOpen} toggleFunc={toggleFunc} />
+            {menuOpen && <ul>
+                <Link href="/services"><li>Услуги</li></Link>
+                <li>Работы</li>
+                <li>Блог</li>
+                <li>Резюме</li>
+                <ContactsIcons />
+            </ul>}
         </div>
     )
 }
 
 
-export function Nav() {
-    const isDesktop = useMediaQuery({ query: '(min-width: 992px)' })
+export default function Nav() {
+
+
 
     return (
-        <nav>
-            {isDesktop && <div>
-                <div className="desktop-nav">
-
-                    <ul>
-                        <li>Услуги</li>
-                        <li>Работы</li>
-                        <div className="vlinesmall"></div>
-                        <li>Блог</li>
-                        <li>Резюме</li>
-                    </ul>
-                </div>
-            </div>}
-            {
-                !isDesktop && <div>
-                    <div className="mobile-nav">
-                        <div className="vlinesmall"></div>
-                        <ul>
-                            <li>Услуги</li>
-                            <li>Работы</li>
-                            <li>Блог</li>
-                            <li>Резюме</li>
-                        </ul>
-                    </div>
-                </div>
-            }
-        </nav >
+        <div className="nav">
+            <MediaQuery minWidth={992}>
+                <DesktopNav />
+            </MediaQuery>
+            <MediaQuery maxWidth={992}>
+                <MobileNav />
+            </MediaQuery>
+        </div>
     )
 }
-
-// export function Nav() {
-//     const isDesktop = useMediaQuery({ minWidth: 992 });
-
-//     return (
-//         <nav>
-//                         <ul>
-//                 <li>Услуги</li>
-//                 <li>Работы</li>
-//                 <li>Блог</li>
-//                 <li>Резюме</li>
-//             </ul>
-//         </nav>
-//     )
-// }
-
 
 

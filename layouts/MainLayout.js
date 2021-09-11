@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import { Nav } from '../components/header/Nav';
+import dynamic from 'next/dynamic';
+
+const DynamicNav = dynamic(() => import('../components/header/Nav'));
 
 function MainLayout({ title, children }) {
     return (
@@ -7,10 +10,10 @@ function MainLayout({ title, children }) {
             <Head>
                 <title>{title}</title>
             </Head>
-            <Nav />
-            <div className="content">
+            <DynamicNav />
+            <section className="content">
                 {children}
-            </div>
+            </section>
         </div>
     )
 }
