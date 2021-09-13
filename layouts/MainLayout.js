@@ -14,6 +14,9 @@ function MainLayout({ title, children }) {
             <section className="content">
                 {children}
             </section>
+            <section className="footer">
+                <div className="footer-vline"></div>
+            </section>
         </div>
     )
 }

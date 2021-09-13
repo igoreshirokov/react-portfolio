@@ -39,11 +39,16 @@ function MobileNav() {
 
 
 export default function Nav() {
-
-
-
     return (
         <div className="nav">
+            <div className="topline">
+                <div className="glinescreen"></div>
+                <div className="vlinecenter"></div>
+                <div className="tlogo">
+                    <div className="tlogo-gline"></div>
+                    <div className="tlogo-vline"></div>
+                </div>
+            </div>
             <MediaQuery minWidth={992}>
                 <DesktopNav />
             </MediaQuery>

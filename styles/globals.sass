@@ -10,33 +10,19 @@ body
     min-height: 360px
 
 .nav
-    width: 100vw
+    width: 100%
     max-height: 80px
     height: 80px
-    position: absolute
-    top: 0
-    &::before
-        content: ''
-        background-color: $secondColor
-        position: absolute
-        left: 0
-        top: 0
-        width: 100%
-        height: 20px
-
-.vlinesmall
     position: relative
-    background-color: #808080
-    width: 20px
-    height: 60px
-    background-color: #808080
-    transform: translate(-100%, 0)
+    top: 0
+    left: 0
 
 .desktop-nav
     width: 100%
     display: flex
     flex-direction: row
     justify-content: center
+    margin-top: 40px
     ul
         display: flex
         flex-direction: row
@@ -47,6 +33,56 @@ body
         li
             list-style-type: none
             text-transform: uppercase
+
+.topline
+    display: block
+    position: relative
+    width: 100%
+    height: 70px
+    left: 0
+    top: 0
+.glinescreen
+    width: 100%
+    position: absolute
+    left: 0
+    top: 0
+    height: 30px
+    background: $secondColor
+.vlinecenter
+    display: block
+    position: absolute
+    width: 45px
+    // height: 70px
+    height: 100vh
+    opacity: 0.5
+    left: 50%
+    top: 0
+    transform: translate(-50%, 0)
+    background: $secondColor
+
+.tlogo
+    display: block
+    position: relative
+    width: 60px
+    height: 60px
+    left: 50%
+    top: 0
+    transform: translate(-50%, 0)
+.tlogo-gline
+    position: absolute
+    width: 100%
+    left: 0
+    top: 0
+    height: 15px
+    background: $firstColor
+.tlogo-vline
+    position: absolute
+    width: 15px
+    height: 100%
+    left: 50%
+    transform: translate(-50%,0)
+    top: 0
+    background: $firstColor
 
 @keyframes mobile-menu
     0%
@@ -134,7 +170,6 @@ body
     justify-content: center
     align-items: center
 
-
 .t
     position: absolute
     left: 50%
@@ -152,12 +187,20 @@ body
         padding: 0
         margin: 0
     .headline
-        width: 50%
         align-self: flex-start
         display: flex
         justify-content: flex-end
-        
-
+        position: relative
+        min-height: 100px
+        width: 100%
+        h1
+            display: block
+            position: absolute
+            left: 52%
+            top: 0
+            text-align: right
+            letter-spacing: 0.1
+            transform: translate(-100%, 0)
 h1, h2, h3, h4, h5, h6
     color: $secondColor
 
@@ -166,9 +209,31 @@ h3
 
 button
     padding: 10px 20px
-    background-color: transparent
-    border: 2px solid $secondColor
-    color: $secondColor
     font-size: 1.1rem
 
 .light-button
+    background-color: transparent
+    border: 2px solid $secondColor
+    color: $secondColor
+    transition: .3s
+    cursor: pointer
+    &:hover
+        background-color: $secondColor
+        border: 2px solid $secondColor
+        color: $firstColor
+
+
+.footer
+    position: relative
+    height: 70px
+    margin-top: 70px
+
+.footer-vline
+    display: block
+    position: absolute
+    width: 45px
+    height: 70px
+    left: 50%
+    bottom: 0
+    transform: translate(-50%, 0)
+    background: $secondColor
