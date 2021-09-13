@@ -6,7 +6,8 @@ html, body
 
 body
     font-family: 'Roboto'
-    font-weight: 300
+    font-weight: 400
+    color: $secondColor
     min-height: 360px
 
 .nav
@@ -52,9 +53,9 @@ body
     display: block
     position: absolute
     width: 45px
-    // height: 70px
-    height: 100vh
-    opacity: 0.5
+    height: 70px
+    // height: 100vh
+    // opacity: 0.5
     left: 50%
     top: 0
     transform: translate(-50%, 0)
@@ -208,7 +209,7 @@ h3
     margin: 40px 0 0 0
 
 button
-    padding: 10px 20px
+    padding: 10px 40px
     font-size: 1.1rem
 
 .light-button
@@ -237,3 +238,56 @@ button
     bottom: 0
     transform: translate(-50%, 0)
     background: $secondColor
+
+
+.modal-window
+    width: 100vw
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.button-close
+    margin-top: 90px
+    width: 60px
+    height: 60px
+    border-radius: 100%
+    position: relative
+    cursor: pointer
+    background: $firstColor
+    transition: .2s
+    box-shadow: 0 0 10px 3px rgba(0,0,0,0.5)
+    &::after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 80%
+        height: 3px
+        background: $secondColor
+        transform: translateX(-50%) rotate(45deg)
+    &::before
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 80%
+        height: 3px
+        background: $secondColor
+        transform: translateX(-50%) rotate(-45deg)
+    &:hover
+        transform: rotate(360deg)
+.modal-content
+    margin-top: 25px
+    max-width: 630px
+    h1, p
+        padding: 0
+        margin: 0
+    p
+        margin-top: 1rem
+    .modal-description
+        margin-top: 25px    
+    button
+        margin-top: 25px
+.modal-footer
+    
