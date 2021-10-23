@@ -8,9 +8,9 @@ export default function ModalWindow({ children, functionClose }) {
 
             {children}
 
-            <div className="modal-footer">
+            {/* <div className="modal-footer">
                 <div className="footer-vline"></div>
-            </div>
+            </div> */}
         </div>
     )
 }

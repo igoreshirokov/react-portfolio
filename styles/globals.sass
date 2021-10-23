@@ -195,13 +195,20 @@ body
         min-height: 100px
         width: 100%
         h1
+            opacity: 0.2
             display: block
             position: absolute
             left: 52%
             top: 0
             text-align: right
             letter-spacing: 0.1
-            transform: translate(-100%, 0)
+            transform: translate(-100%, 50%)
+        @media screen and (max-width: 992px)
+            h1
+                font-size: 100px
+                left: 0
+                transform: translate(0,0)
+
 h1, h2, h3, h4, h5, h6
     color: $secondColor
 
@@ -223,7 +230,6 @@ button
         border: 2px solid $secondColor
         color: $firstColor
 
-
 .footer
     position: relative
     height: 70px
@@ -239,9 +245,8 @@ button
     transform: translate(-50%, 0)
     background: $secondColor
 
-
 .modal-window
-    width: 100vw
+    width: 100%
     min-height: 100vh
     display: flex
     flex-direction: column
@@ -286,8 +291,34 @@ button
     p
         margin-top: 1rem
     .modal-description
-        margin-top: 25px    
+        margin-top: 25px
     button
         margin-top: 25px
 .modal-footer
-    
+    position: relative
+    margin-top: 150px
+
+.workslistslider
+    .swiper-slide
+        transition: .3s
+        transform: scale(0.8)
+    .swiper-slide-active
+        transition: .3s
+        transform: scale(1)
+    .swiper-slide
+        display: flex
+        justify-content: center
+
+
+.full-screen-image-wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 99
+    background: rgba(0,0,0,0.5)
+.full-screen-image
+    max-width: 80vw
+    max-height: 90vh

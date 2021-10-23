@@ -9,8 +9,8 @@ const DesktopNav = () => {
     return (
         <div className="desktop-nav">
             <ul>
-                <li>Услуги</li>
-                <li>Работы</li>
+                <Link href="/services"><li>Услуги</li></Link>
+                <Link href="/works"><li>Работы</li></Link>
                 <li>Блог</li>
                 <li>Резюме</li>
             </ul>
@@ -28,7 +28,7 @@ function MobileNav() {
             <NavButton open={menuOpen} toggleFunc={toggleFunc} />
             {menuOpen && <ul>
                 <Link href="/services"><li>Услуги</li></Link>
-                <li>Работы</li>
+                <Link href="/works"><li>Работы</li></Link>
                 <li>Блог</li>
                 <li>Резюме</li>
                 <ContactsIcons />
@@ -44,10 +44,12 @@ export default function Nav() {
             <div className="topline">
                 <div className="glinescreen"></div>
                 <div className="vlinecenter"></div>
-                <div className="tlogo">
-                    <div className="tlogo-gline"></div>
-                    <div className="tlogo-vline"></div>
-                </div>
+                <Link href="/">
+                    <div className="tlogo">
+                        <div className="tlogo-gline"></div>
+                        <div className="tlogo-vline"></div>
+                    </div>
+                </Link>
             </div>
             <MediaQuery minWidth={992}>
                 <DesktopNav />

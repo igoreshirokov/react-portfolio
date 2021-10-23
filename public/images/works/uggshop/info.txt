@@ -1,0 +1,7 @@
+Uggshop
+http://81.177.48.218:9996/
+
+Backend: Laravel
+Frontend: Next.js
+
+Github: 

@@ -1,8 +1,12 @@
 import Link from "next/link"
+import Head from "next/head"
 
 export function Development() {
     return (
         <div className="modal-content">
+            <Head>
+                <title>Разработка</title>
+            </Head>
             <h1>Разработка</h1>
             <div className="modal-description">
                 <p>На рынке IT услуг существуют 2 ветки предложения - биржи и студии. В студиях стоимость выполнения работ заоблочно высока, а на фриланс биржах ваш проект может оказаться выполненным кое-как или вообще не выполненным.
