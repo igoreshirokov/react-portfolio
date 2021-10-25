@@ -18,19 +18,26 @@ export default function Brief() {
         "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;"
       );
       tx[i].addEventListener("input", OnInput, false);
-    //   tx[i].addEventListener("focusout", OnFocusOut, false);
       tx[i].addEventListener("focusin", OnInput, false);
     }
-
-    // function OnFocusOut() {
-    //   this.style.height = this.scrollHeight * 0.3 + "px";
-    // }
 
     function OnInput() {
       this.style.height = "auto";
       this.style.height = this.scrollHeight + "px";
     }
   }, []);
+
+  function submit(e) {
+    e.preventDefault();
+    let obj = {};
+    e.target
+      .querySelectorAll("input, textarea")
+      .forEach((el) => (obj[el.id] = el.value));
+    fetch("/api/briefsender", {
+      method: "POST",
+      body: JSON.stringify(obj)
+    }).then(res => res.status == 200 && router.push('/'))
+  }
 
   return (
     <ModalWindow functionClose={closeBrief}>
@@ -43,7 +50,7 @@ export default function Brief() {
           Данный опросный лист поможет более четко понять цели и задачи
           интернет-проекта.
         </p>
-        <form className={styles.briefForm}>
+        <form onSubmit={submit} className={styles.briefForm}>
           <div className={styles.briefFormContactInfo}>
             <h3>Контактая информация</h3>
             <div className={styles.inputField}>
@@ -59,7 +66,7 @@ export default function Brief() {
               <label htmlFor="email">E-mail</label>
             </div>
             <div className={styles.inputField}>
-              <input id="site" type="text" required></input>
+              <input id="site" type="text"></input>
               <label htmlFor="site">Сайт</label>
             </div>
           </div>
