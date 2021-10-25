@@ -1,3 +1,4 @@
+@import loadergear
 @import colors
 
 html, body
@@ -10,6 +11,9 @@ body
     color: $secondColor
     min-height: 360px
 
+.body-overflow-hidden
+    overflow: hidden
+
 .nav
     width: 100%
     max-height: 80px
@@ -17,6 +21,7 @@ body
     position: relative
     top: 0
     left: 0
+    cursor: pointer
 
 .desktop-nav
     width: 100%
@@ -91,7 +96,6 @@ body
     100%
         opacity: 1
         transform: translateX(0)
-        box-shadow: -300px 0 10px 10px rgb(0 0 0 / 50%)
 
 .mobile-nav
     .vlinesmall
@@ -100,7 +104,7 @@ body
         top: 0
         transform: translateX(-50%)
     ul
-        padding: 170px 0 0 0
+        padding: 0
         margin: 0 0 0 0
         position: fixed
         z-index: 9
@@ -115,6 +119,11 @@ body
         transform: translate(100%,0)
         animation: mobile-menu .5s both
         overflow-y: scroll
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        box-shadow: 0 0 0 100vw rgba(0,0,0,0.75)
         li
             list-style-type: none
             width: 100%
@@ -124,8 +133,11 @@ body
             align-items: center
             cursor: pointer
             font-size: 36px
+
         @media screen and (orientation: landscape)
-            padding: 70px 0 0 0
+            max-height: 100vh
+            padding: 0
+            overflow-y: scroll
             li
                 height: 50px
                 font-size: 1.5rem
@@ -147,7 +159,7 @@ body
         transition: .3s
         width: 100%
         height: 3px
-        background: $thirdColor
+        background: $secondColor
 .nav-button__open
     span
         transform-origin: center
@@ -178,6 +190,7 @@ body
     transform: translateX(-50%)
 
 .content
+    min-height: calc(100vh - 280px)
     max-width: 1440px
     margin: 0 auto
     margin-top: 60px
@@ -195,11 +208,12 @@ body
         min-height: 100px
         width: 100%
         h1
+            z-index: -1
             opacity: 0.2
             display: block
             position: absolute
             left: 52%
-            top: 0
+            bottom: 0
             text-align: right
             letter-spacing: 0.1
             transform: translate(-100%, 50%)
@@ -251,6 +265,8 @@ button
     display: flex
     flex-direction: column
     align-items: center
+    margin-bottom: 100px
+
 
 .button-close
     margin-top: 90px
@@ -261,7 +277,7 @@ button
     cursor: pointer
     background: $firstColor
     transition: .2s
-    box-shadow: 0 0 10px 3px rgba(0,0,0,0.5)
+    box-shadow: 0px -3px 10px 0px rgb(0 0 0 / 50%)
     &::after
         content: ''
         position: absolute
@@ -285,6 +301,9 @@ button
 .modal-content
     margin-top: 25px
     max-width: 630px
+    margin: auto
+    h1
+        font-size: 2rem
     h1, p
         padding: 0
         margin: 0
@@ -292,6 +311,8 @@ button
         margin-top: 1rem
     .modal-description
         margin-top: 25px
+        img
+            max-width: 100%
     button
         margin-top: 25px
 .modal-footer
@@ -309,7 +330,6 @@ button
         display: flex
         justify-content: center
 
-
 .full-screen-image-wrapper
     display: flex
     justify-content: center
@@ -322,3 +342,22 @@ button
 .full-screen-image
     max-width: 80vw
     max-height: 90vh
+
+@media screen and (max-width: 992px)
+    .modal-content
+        max-width: 100%
+        h1
+            padding: 10px
+        .modal-description
+            padding: 10px
+            margin: 0
+        button
+            width: 100%
+            max-width: 380px
+            margin: 10px
+
+
+
+.contact-icons
+    display: flex
+    gap: 5px

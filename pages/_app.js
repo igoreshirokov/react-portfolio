@@ -3,6 +3,7 @@ import 'swiper/css'
 import { useState, useEffect } from 'react'
 import Router, { useRouter } from 'next/router'
 import { FetchLoading } from '../components/ui/FetchLoading'
+import { LoaderGear } from '../components/ui/LoaderGear'
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false)
@@ -33,7 +34,7 @@ function MyApp({ Component, pageProps }) {
   }, [Router])
   return (
     <>
-      {loading ? <div>Loading</div> : <Component {...pageProps} />}
+      {loading ? <LoaderGear /> : <Component {...pageProps} />}
     </>)
 
 }

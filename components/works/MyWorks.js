@@ -4,7 +4,7 @@ import { Autoplay } from "swiper"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from '../../styles/works.module.sass'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 export function fullScreenImageView(image, close) {
@@ -26,6 +26,7 @@ export function Redautorent() {
         on: false,
         image: false
     }
+    
     const images = [
         '/images/works/redautorent/desktop1.jpg',
         '/images/works/redautorent/desktop2.jpg',
@@ -49,6 +50,13 @@ export function Redautorent() {
         fullScreen.image = false
     }
 
+    function swiperOnInit(swiper) {
+        setISwiper(true);
+    }
+    // useEffect(() => {
+    //     console.log(ISwiper)
+    // }, [ISwiper])
+
     return (
         <div className="modal-content">
             <Head>
@@ -59,6 +67,7 @@ export function Redautorent() {
                 {fullScreen && <fullScreenImageView image={fullScreen.image} close={closeFunction} />}
                 <Swiper
                     modules={[Autoplay]}
+                    // onSwiper={(swiper) => swiperOnInit(swiper)}
                     autoplay={{
                         delay: 5000
                     }}

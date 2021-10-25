@@ -1,5 +1,9 @@
 .workslist
     margin-top: 50px
+    
+.notActive
+    opacity: 0.2
+
 
 .workslistnavigation
     margin-top: 50px
@@ -7,21 +11,53 @@
     display: flex
     justify-content: center
     gap: 20px
+    cursor: pointer
 
 .workcardheadline
     display: flex
     justify-content: center
+    align-items: center
+    margin: 10px
+    text-align: center
 .workcardimage
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.5)
+    width: 280px
+    height: 280px
     img
         object-fit: cover
         transition: .3s
         &:hover
             object-position: 0 0
 
+.workcard
+    cursor: grab
+    transition: .3s
+    width: 280px
+
 .workfullimage
+    margin: 20px auto
     width: 100%
     display: flex
     justify-content: center
     align-items: center
-    
+    cursor: grab
+
+.workcardsliderthumbnails
+    flex-wrap: wrap
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    gap: 10px
+    margin: 20px auto
+
+.workthumbnail
+    cursor: pointer
+    display: block
+    opacity: .5
+    transition: .3s transform
+
+.activeindex
+    transform: scale(1.05)
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.5)
+    opacity: 1

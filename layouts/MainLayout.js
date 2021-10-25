@@ -9,6 +9,7 @@ function MainLayout({ title, children }) {
         <div className="main">
             <Head>
                 <title>{title}</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
             </Head>
             <DynamicNav />
             <section className="content">
