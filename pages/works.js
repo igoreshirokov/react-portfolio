@@ -56,10 +56,9 @@ export default function Works() {
                 ) : (
                   works.map((work, index) => {
                     return (
-                      <SwiperSlide>
+                      <SwiperSlide key={work.title + index + "key"}>
                         {({ isActive }) => (
                           <div
-                            key={work.title + index}
                             onClick={() => openModal(<Work work={work} />)}
                             className={
                               isActive

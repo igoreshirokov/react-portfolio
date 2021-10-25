@@ -24,6 +24,8 @@ const DesktopNav = () => {
     </div>
   );
 };
+
+
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleFunc = () => {
@@ -37,6 +39,8 @@ function MobileNav() {
       document.body.classList.remove("body-overflow-hidden");
     };
   }, [menuOpen]);
+
+
   return (
     <div className="mobile-nav">
       <div className="vlinesmall"></div>

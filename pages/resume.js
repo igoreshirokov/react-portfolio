@@ -41,10 +41,11 @@ export default function Resume() {
               интересуюсь мобильных приложений.
             </p>
           </div>
-          <div className={`${styles.info_string} ${styles.info_string_skills_string}`}>
+          <div
+            className={`${styles.info_string} ${styles.info_string_skills_string}`}
+          >
             <span>Навыки:</span>
-            <p>
-            <div className={styles.info_string_skills}>
+            <p className={styles.info_string_skills}>
               <i className={styles.skill}>React.js</i>
               <i className={styles.skill}>Angular</i>
               <i className={styles.skill}>Next.js</i>
@@ -59,7 +60,6 @@ export default function Resume() {
               <i className={styles.skill}>Nginx</i>
               <i className={styles.skill}>Apache</i>
               <i className={styles.skill}>SQL</i>
-            </div>
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Resume() {
         <Link href="/brief">
           <button className="light-button">Оставить заявку</button>
         </Link>
-          <button className={styles.print}>Печать</button>
+        <a href="/files/resume.pdf" target="_blank" className={styles.print}><img src="/images/icons/print.svg" />Печать.pdf</a>
       </div>
     </MainLayout>
   );

@@ -5,13 +5,34 @@ import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../../styles/works.module.sass";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import ModalWindow from "../ModalWindow";
+import { FullScreenImage } from "../ui/FullScreenImage";
+import { ModalFullScreenImage } from "../ModalFullScreenImage";
 
 export function Work({ work }) {
   const [Slider, setSlider] = useState(false);
   const [ActiveIndex, setActiveIndex] = useState(0);
+  const [fullScreen, setFullScreen] = useState(false);
+  const router = useRouter();
 
   function setAciveSlide(index) {
     Slider.slideTo(index);
+  }
+
+  function openFullScreenImage(image) {
+    setFullScreen(image);
+  }
+  function closeFullScreenImage() {
+    setFullScreen(false);
+  }
+
+  if (fullScreen) {
+    return (
+      <ModalFullScreenImage functionClose={closeFullScreenImage}>
+        <FullScreenImage image={fullScreen} />
+      </ModalFullScreenImage>
+    );
   }
 
   return (
@@ -31,22 +52,20 @@ export function Work({ work }) {
           {work.images.map((image) => {
             if (image.includes("mobile")) {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={image + "full"}>
                   <div
-                    key={image + "full"}
-                    onClick={() => openFullScreenImage(image)}
+                    // onClick={() => openFullScreenImage(image)}
                     className={styles.workfullimage}
                   >
-                    <Image key={image} src={image} width={130} height={280} />
+                    <Image src={image} width={130} height={280} />
                   </div>
                 </SwiperSlide>
               );
             } else {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={image + "full"}>
                   <div
-                    key={image + "full"}
-                    onClick={() => openFullScreenImage(image)}
+                    // onClick={() => openFullScreenImage(image)}
                     className={styles.workfullimage}
                   >
                     <Image key={image} src={image} width={630} height={290} />
@@ -70,7 +89,7 @@ export function Work({ work }) {
                     : styles.workthumbnail
                 }
               >
-                <Image key={image} src={image} width={40} height={70} />
+                <Image src={image} width={40} height={70} />
               </div>
             );
           } else {
@@ -84,7 +103,7 @@ export function Work({ work }) {
                     : styles.workthumbnail
                 }
               >
-                <Image key={image} src={image} width={70} height={40} />
+                <Image src={image} width={70} height={40} />
               </div>
             );
           }

@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
 
   function handleStart() {
     setLoading(true)
-    console.log('Handle Start')
+    
   }
   
   function handleStop() {
@@ -19,15 +19,12 @@ function MyApp({ Component, pageProps }) {
 
       setLoading(false)
     }, 100)
-    console.log('Handle Stop')
   }
   function handleStopErr() {
-    console.log('Handle Error')
   }
 
   useEffect(() => {
-    console.log('useEffect app js')
-
+    
     Router.events.on('routeChangeStart', handleStart)
     Router.events.on('routeChangeError', handleStopErr)
     Router.events.on('routeChangeComplete', handleStop)

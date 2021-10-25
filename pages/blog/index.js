@@ -44,6 +44,7 @@ export default function Blog() {
                   <Link href={`/blog/${post.id}`}>
                     <a>Подробнее...</a>
                   </Link>
+                  <div className={styles.created_ad}>{post.created_ad}</div>
                 </div>
               );
             })

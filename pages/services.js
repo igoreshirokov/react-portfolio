@@ -40,6 +40,7 @@ export default function Services() {
             <div className={styles.servicesList}>
               {services.length < 0 ? <LoaderGear /> : services.map((service, index) => (
                 <div
+                  key={service.title + index + index + "key"}
                   className={`${styles.servicesListCard}`}
                 >
                   <h3>{service.title}</h3>
